@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../assets/images/sanket-logo.png">
+    <title>Sanket - Contact Us</title>
+
+    <style>
+        /* Loader */
+        #loader {
+            width: 70px;
+            height: 70px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Center content */
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10vh;
+        }
+
+        /* Main container */
+        #contact-container {
+            max-width: 400px;
+            padding: 20px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+            border-radius: 17px;
+            box-shadow: 0 0 10px rgba(64, 15, 15, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Form styling */
+        #contact-form {
+            display: grid;
+            gap: 19px;
+        }
+
+        .input-group {
+            display: grid;
+            gap: 5px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #0DA778;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0b8e66;
+        }
+
+        /* Footer */
+        #footer {
+            margin-top: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Loader -->
+    <div class="center">
+        <img src="../assets/images/sanket-logo.png" id="loader" alt="loader">
+    </div>
+
+    <!-- Contact Form -->
+    <div id="contact-container" style="display: none;">
+        <div id="contact-card">
+            <h2>Contact Us</h2>
+            <form id="contact-form">
+                <div class="input-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <img src="../assets/images/contact-us-footer.png" alt="footer" id="footer">
+
+    <!-- Script to handle form submission and show contact form after loading -->
+    <script>
+        document.onreadystatechange = function() {
+            if (document.readyState === "complete") {
+                document.getElementById("loader").style.display = "none";
+                document.getElementById("contact-container").style.display = "block";
+            }
+        };
+    </script>
+</body>
+
+</html>

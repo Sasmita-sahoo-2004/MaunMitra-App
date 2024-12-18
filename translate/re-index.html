@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- required -->
+    <link rel="icon" type="image/png" href="/assets/images/sanket-logo.png">
+    <title>Sanket - Translate - Sign to Text</title>
+
+    <!-- page loader stuff -->
+    <style>
+        /* Loader styles */
+        #loader {
+            width: 70px;
+            height: 70px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .center {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+
+        /* Container styles */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        /* Webcam container styles */
+        #webcam-container {
+            width: 70%;
+            max-width: 600px;
+            border: 2px solid #1918186b;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        /* Webcam styles */
+        #webcam {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Button styles */
+        .btn {
+            background-color: #157229;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <!-- Script to show loader until page fully loads -->
+    <script>
+        document.onreadystatechange = function () {
+            if (document.readyState !== "complete") {
+                document.querySelector("body").style.visibility = "hidden";
+                document.querySelector("#loader").style.visibility = "visible";
+            } else {
+                document.querySelector("#loader").style.display = "none";
+                document.querySelector("body").style.visibility = "visible";
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <!-- Loader -->
+    <img src="/assets/images/sanket-logo.png" id="loader" class="center" alt="loader" srcset="">
+
+    <!-- Container for webcam and buttons -->
+    <div class="container">
+        <!-- Webcam view -->
+        <div id="webcam-container">
+            <img src="https://placehold.co/600x400/0DA778/white?font=montserrat&text=Sign Language to Text"
+                class="webcam-banner" alt="webcam-banner">
+            <video id="webcam" autoplay playsinline></video>
+        </div>
+
+        <!-- Buttons to start and stop webcam -->
+        <button class="btn" onclick="startWebcam()">Start Webcam</button>
+        <button class="btn" onclick="stopWebcam()">Stop Webcam</button>
+
+        <!-- Predicted output -->
+        <div id="prediction-box">
+            <strong>Predicted Text:</strong> <span id="predicted-text">U</span>
+        </div>
+    </div>
+
+    <!-- Script to load TensorFlow.js and sign-to-text.js -->
+    <script async defer src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script async defer src="https://cdn.jsdelivr.net/npm/@teachablemachine/image"></script>
+    <script async defer src="sign-to-text.js"></script>
+
+    <!-- JavaScript for webcam functionality -->
+    <script>
+        let videoStream;
+
+        // Function to start webcam
+        async function startWebcam() {
+            const video = document.getElementById('webcam');
+            try {
+                // Get webcam access
+                videoStream = await navigator.mediaDevices.getUserMedia({ video: true });
+                video.srcObject = videoStream;
+            } catch (err) {
+                console.error('Error accessing webcam:', err);
+            }
+        }
+
+        // Function to stop webcam
+        function stopWebcam() {
+            if (videoStream) {
+                // Stop all tracks
+                const tracks = videoStream.getTracks();
+                tracks.forEach(track => track.stop());
+                const video = document.getElementById('webcam');
+                video.srcObject = null;
+            }
+        }
+    </script>
+</body>
+
+</html>

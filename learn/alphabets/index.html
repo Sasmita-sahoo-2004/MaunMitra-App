@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- required -->
+    <link rel="icon" type="image/png" href="../../assets/images/sanket-logo.png">
+    <title>MaunMitra - Learn - Alphabets</title>
+    <style>
+        #loader {
+            width: 70px;
+            height: 70px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .center {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+    </style>
+    <script>
+        document.onreadystatechange = function() {
+            if (document.readyState !== "complete") {
+                document.querySelector(
+                    "body").style.visibility = "hidden";
+                document.querySelector(
+                    "#loader").style.visibility = "visible";
+            } else {
+                document.querySelector(
+                    "#loader").style.display = "none";
+                document.querySelector(
+                    "body").style.visibility = "visible";
+            }
+        };
+    </script>
+    <style>
+        @font-face {
+            font-family: "Poppins";
+            src: url("../../assets/fonts/Poppins-Regular.ttf");
+        }
+        
+        body {
+            font-family: 'Poppins';
+            background-color: #f9f9fa !important;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            color: #721d5d;
+        }
+        
+        #back-arrow img {
+            width: 1.3rem;
+        }
+        
+        #back-arrow {
+            position: absolute;
+            color: #02050a;
+            top: 10px;
+            left: 10px;
+            font-size: 0.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 5px;
+            border: 2px solid #193053;
+            border-radius: 100%;
+        }
+        
+        #underline {
+            margin: auto;
+            margin-top: -1rem;
+            border-bottom: 0.35rem solid #193053;
+            border-radius: 1rem;
+            width: 5rem;
+        }
+        
+        ul {
+            list-style-type: none;
+            margin-top: 2rem;
+            padding: 0;
+        }
+        
+        ul li {
+            padding-bottom: 1.5rem;
+        }
+        
+        iframe {
+            display: none;
+            width: 100%;
+            height: 15rem;
+            margin: auto;
+            border: 2px red;
+            border-radius: 18px;
+        }
+        
+        @media only screen and (min-width: 1080px) {
+            iframe {
+                max-width: 40%;
+            }
+        }
+    </style>
+    <script>
+        function iframeload() {
+            const iframes = document.querySelectorAll('iframe');
+
+            for (let i = 0; i < iframes.length; i++) {
+                iframes[i].style.display = 'block';
+
+
+            }
+            document.getElementById('if-1').src = "https://www.youtube.com/embed/Vj_13bdU4dU";
+            document.getElementById('if-2').src = "https://www.youtube.com/embed/qcdivQfA41Y";
+        }
+    </script>
+
+</head>
+
+<body onload="iframeload()">
+    <!-- loader -->
+    <img src="../../assets/images/sanket-logo.png" id="loader" class="center" alt="loader" srcset="">
+    <a href="../../learn" id="back-arrow"><img src="https://uxwing.com/wp-content/themes/uxwing/download/arrow-direction/back-arrow-icon.png" alt="back"></a>
+    <!-- heading -->
+    <h1>Alphabets</h1><span id="underline"></span>
+    <!-- yt vid list -->
+    <ul>
+        <li><iframe width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" async defer id="if-1"></iframe></li>
+
+        <li><iframe width="560" height="315" loading="lazy" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen async defer id="if-2"></iframe></li>
+
+
+    </ul>
+
+    </iframe>
+    <div class="alphabet">
+        <p>A - Make a fist with your thumb extended and place it near your forehead.</p>
+        <p>B - Make a closed fist with your index finger extended and tap it against the palm of your other hand.</p>
+        <p>C - Make a C-shape with your hand and move it in a circular motion.</p>
+        <p>D - Make a fist with your index finger and thumb extended, and tap your temple twice.</p>
+        <p>E - Extend all fingers on one hand and tap your chest.</p>
+        <p>F - Make a fist with your thumb extended and move it across your forehead.</p>
+        <p>G - Make a fist with your pinky extended and move it in a circular motion.</p>
+        <p>H - Hold your hand in a flat, open position with all fingers together.</p>
+        <p>I - Point your index finger straight up.</p>
+        <p>J - Make a hook shape with your index finger.</p>
+        <p>K - Make a fist with your index and middle fingers extended and crossed.</p>
+        <p>L - Extend your thumb and index finger into an L shape.</p>
+        <p>M - Make a fist with your thumb extended and place it near your chin.</p>
+        <p>N - Make a fist with your index and middle fingers extended and tap them against your chest.</p>
+        <p>O - Form a circle with your thumb and index finger.</p>
+        <p>P - Make a fist with your pinky extended and move it in a circular motion.</p>
+        <p>Q - Make a fist with your index finger extended and draw a Q shape in the air.</p>
+        <p>R - Make a hook shape with your index and middle fingers.</p>
+        <p>S - Extend your fingers and hold your hand in a flat, open position.</p>
+        <p>T - Make a fist with your thumb extended and tap it against your chest.</p>
+        <p>U - Make a U shape with your index and middle fingers.</p>
+        <p>V - Make a V shape with your index and middle fingers.</p>
+        <p>W - Make a W shape with your thumb, index, and middle fingers.</p>
+        <p>X - Cross your index and middle fingers.</p>
+        <p>Y - Extend your pinky and thumb, and hold your other fingers down.</p>
+        <p>Z - Make a Z shape with your index finger and thumb.</p>
+    </div>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+
+        }
+        .alphabet {
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-decoration: dotted;
+        }
+    </style>
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../assets/images/sanket-logo.png">
+    <title>Sanket - Settings</title>
+
+    <style>
+        /* Loader */
+        #loader {
+            width: 70px;
+            height: 70px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Center content */
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Main container */
+        #settings-container {
+            max-width: 400px;
+            padding: 20px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Settings options */
+        .setting {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .setting label {
+            font-weight: bold;
+        }
+
+        .setting input[type="checkbox"] {
+            margin-left: 10px;
+        }
+
+        .setting input[type="text"] {
+            width: 200px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #0DA778;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0b8e66;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Loader -->
+    <div class="center">
+        <img src="../assets/images/sanket-logo.png" id="loader" alt="loader">
+    </div>
+
+    <!-- Settings Form -->
+    <div id="settings-container" style="display: none;">
+        <div id="settings-card">
+            <h2>Settings</h2>
+            <form id="settings-form">
+                <div class="setting">
+                    <label for="notifications">Notifications:</label>
+                    <input type="checkbox" id="notifications" name="notifications">
+                </div>
+                <div class="setting">
+                    <label for="theme">Theme:</label>
+                    <select id="theme" name="theme">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                    </select>
+                </div>
+                <div class="setting">
+                    <label for="language">Language:</label>
+                    <input type="text" id="language" name="language">
+                </div>
+                <button type="submit">Save Settings</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Script to handle form submission and show settings form after loading -->
+    <script>
+        document.onreadystatechange = function() {
+            if (document.readyState === "complete") {
+                document.getElementById("loader").style.display = "none";
+                document.getElementById("settings-container").style.display = "block";
+            }
+        };
+    </script>
+</body>
+
+</html>
